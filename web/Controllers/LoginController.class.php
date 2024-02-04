@@ -35,6 +35,8 @@ class LoginController implements IController{
         /** Titulek stránky přihlášeného uživatele */
         $tplData['prihlasenTitle'] = $this->db->jeUzivatelPrihlasen() ? " Profil" : " Přihlášení";
         /** Deklarace proměnných daného kontroleru pro danou šablonu */
+        $tplData['dataUzivateleUpravena'] = false;
+        $tplData['dataUzivateleZustalaStejna'] = true;
         $tplData['hesloZmeneno'] = false;
         $tplData['objednavkyUzivatele'] = [];
         $tplData['objednavkyRadek'] = "";
@@ -70,6 +72,36 @@ class LoginController implements IController{
                 /** Pokud je přihlášení úspěšné, získám uživatelské právo */
                 $tplData['role'] = $this->db->ziskejDataUzivatele()['id_pravo'];
             }
+        }
+
+        /** Změna uživatelských dat */
+        if(isset($_POST['ulozitUdaje']) &&
+            !empty($_POST['jmeno']) && !empty($_POST['prijmeni']) &&
+            !empty($_POST['e-mail']) && !empty($_POST['mesto']) &&
+            !empty($_POST['okres']) && !empty($_POST['ulice']) &&
+            !empty($_POST['cislopopisne']) && !empty($_POST['smerovacicislo'])){
+                $user = $this->db->ziskejDataUzivatele();
+                if($user['email'] != $_POST['e-mail']){
+                    $shoda = $this->db->vratUzivatele($_POST['e-mail']);
+                }else{
+                    $shoda = false;
+                }
+                if(!$shoda){
+                    if($user['jmeno'] == $_POST['jmeno'] && $user['prijmeni'] == $_POST['prijmeni'] && $user['email'] == $_POST['e-mail'] &&
+                        $user['mesto'] == $_POST['mesto'] && $user['okres'] == $_POST['okres'] && $user['ulice'] == $_POST['ulice'] &&
+                        $user['cp'] == $_POST['cislopopisne'] && $user['psc'] == $_POST['smerovacicislo']){
+                        $tplData['dataUzivateleZustalaStejna'] = true;
+                        $tplData['dataUzivateleUpravena'] = false;
+                    }else{
+                        $tplData['dataUzivateleZustalaStejna'] = false;
+                        $tplData['dataUzivateleUpravena'] =
+                            $this->db->upravDataUzivatele($user['id'],$_POST['jmeno'],$_POST['prijmeni'],$_POST['e-mail'],
+                                $_POST['mesto'],$_POST['okres'],$_POST['ulice'],$_POST['cislopopisne'],$_POST['smerovacicislo']);
+                    }
+                }
+        }else if(isset($_POST['ulozitUdaje'])){
+            $tplData['dataUzivateleUpravena'] = false;
+            $tplData['dataUzivateleZustalaStejna'] = false;
         }
 
         $user = $this->db->ziskejDataUzivatele();

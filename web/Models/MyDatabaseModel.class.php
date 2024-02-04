@@ -63,10 +63,10 @@ class MyDatabaseModel{
      */
     public function vratUzivatele($email):false|array|null{
         $q = "SELECT * FROM ".TABLE_UZIVATEL." WHERE email=:uLogin;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":uLogin",$email);
-        if($vystup->execute()){
-            $user = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":uLogin",$email);
+        if($vstup->execute()){
+            $user = $vstup->fetchAll();
             if(empty($user)){
                 return null;
             }else{
@@ -102,18 +102,18 @@ class MyDatabaseModel{
         $uzivatel = $this->vratUzivatele($email);
         if(!isset($uzivatel) || count($uzivatel)==0){
             $q = "INSERT INTO ".TABLE_UZIVATEL." (jmeno,prijmeni,email,heslo,okres,mesto,ulice,cp,psc,id_pravo) VALUES (:jmeno,:prijmeni,:email,:heslo,:okres,:mesto,:ulice,:cp,:psc,:id_pravo);";
-            $vystup = $this->pdo->prepare($q);
-            $vystup->bindValue(":jmeno",$jmeno);
-            $vystup->bindValue(":prijmeni",$prijmeni);
-            $vystup->bindValue(":email",$email);
-            $vystup->bindValue(":heslo",password_hash($heslo,PASSWORD_BCRYPT));
-            $vystup->bindValue(":okres",$okres);
-            $vystup->bindValue(":mesto",$mesto);
-            $vystup->bindValue(":ulice",$ulice);
-            $vystup->bindValue(":cp",$cp);
-            $vystup->bindValue(":psc",$psc);
-            $vystup->bindValue(":id_pravo",4);
-            if($vystup->execute()){
+            $vstup = $this->pdo->prepare($q);
+            $vstup->bindValue(":jmeno",$jmeno);
+            $vstup->bindValue(":prijmeni",$prijmeni);
+            $vstup->bindValue(":email",$email);
+            $vstup->bindValue(":heslo",password_hash($heslo,PASSWORD_BCRYPT));
+            $vstup->bindValue(":okres",$okres);
+            $vstup->bindValue(":mesto",$mesto);
+            $vstup->bindValue(":ulice",$ulice);
+            $vstup->bindValue(":cp",$cp);
+            $vstup->bindValue(":psc",$psc);
+            $vstup->bindValue(":id_pravo",4);
+            if($vstup->execute()){
                 return true;
             }else{
                 return false;
@@ -133,10 +133,10 @@ class MyDatabaseModel{
                 return null;
             }else{
                 $q = "SELECT * FROM ".TABLE_UZIVATEL." WHERE id=:id;";
-                $vystup = $this->pdo->prepare($q);
-                $vystup->bindValue(":id",$userId);
-                if($vystup->execute()){
-                    $userData = $vystup->fetchAll();
+                $vstup = $this->pdo->prepare($q);
+                $vstup->bindValue(":id",$userId);
+                if($vstup->execute()){
+                    $userData = $vstup->fetchAll();
                 }
                 if(empty($userData)){
                     $this->odhlasUzivatele();
@@ -148,6 +148,25 @@ class MyDatabaseModel{
         }else{
             return null;
         }
+    }
+
+    public function upravDataUzivatele($id,$jmeno,$prijmeni,$email,$mesto,$okres,$ulice,$cislopopisne,$smerovacicislo):bool{
+        $q = "UPDATE ".TABLE_UZIVATEL." SET jmeno=:jmeno,prijmeni=:prijmeni,email=:email,mesto=:mesto,okres=:okres,ulice=:ulice,
+        cp=:cp,psc=:psc WHERE id=:id";
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id",$id);
+        $vstup->bindValue(":jmeno",$jmeno);
+        $vstup->bindValue(":prijmeni",$prijmeni);
+        $vstup->bindValue(":email",$email);
+        $vstup->bindValue(":mesto",$mesto);
+        $vstup->bindValue(":okres",$okres);
+        $vstup->bindValue(":ulice",$ulice);
+        $vstup->bindValue(":cp",$cislopopisne);
+        $vstup->bindValue(":psc",$smerovacicislo);
+        if($vstup->execute()){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -190,9 +209,9 @@ class MyDatabaseModel{
      */
     public function vratVsechnyUzivatele():array|null{
         $q = "SELECT * FROM ".TABLE_UZIVATEL.";";
-        $vystup = $this->pdo->prepare($q);
-        if($vystup->execute()){
-            return $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        if($vstup->execute()){
+            return $vstup->fetchAll();
         }else{
             return null;
         }
@@ -221,12 +240,12 @@ class MyDatabaseModel{
      */
     public function vratVytvorenouNeodeslanouObjednavku():false|array{
         $q = "SELECT * FROM ".TABLE_OBJEDNAVKA." WHERE id_uzivatel=:id_uzivatel AND dokoncena=:dokoncena;";
-        $vystup = $this->pdo->prepare($q);
+        $vstup = $this->pdo->prepare($q);
         $u = $this->ziskejDataUzivatele();
-        $vystup->bindValue(':id_uzivatel',$u['id']);
-        $vystup->bindValue(':dokoncena',0);
-        if($vystup->execute()){
-            $objednavka = $vystup->fetchAll();
+        $vstup->bindValue(':id_uzivatel',$u['id']);
+        $vstup->bindValue(':dokoncena',0);
+        if($vstup->execute()){
+            $objednavka = $vstup->fetchAll();
             if(empty($objednavka)){
                 return false;
             }else{
@@ -261,11 +280,11 @@ class MyDatabaseModel{
      */
     public function vratHotoveObjednavkyUzivatele($id_uzivatel):array|null{
         $q = "SELECT * FROM ".TABLE_OBJEDNAVKA." WHERE id_uzivatel=:id_uzivatel AND dokoncena=:dokoncena;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":id_uzivatel",$id_uzivatel);
-        $vystup->bindValue(":dokoncena",1);
-        if($vystup->execute()){
-            $objednavky = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id_uzivatel",$id_uzivatel);
+        $vstup->bindValue(":dokoncena",1);
+        if($vstup->execute()){
+            $objednavky = $vstup->fetchAll();
             if(empty($objednavky)){
                 return null;
             }else{
@@ -282,10 +301,10 @@ class MyDatabaseModel{
      */
     public function vratProduktyZKosiku($id_objednavka):array|null{
         $q = "SELECT * FROM ".TABLE_OBSAHUJE." WHERE id_objednavka=:id_objednavka;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":id_objednavka",$id_objednavka);
-        if($vystup->execute()){
-            $produkty = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id_objednavka",$id_objednavka);
+        if($vstup->execute()){
+            $produkty = $vstup->fetchAll();
             if(empty($produkty)){
                 return null;
             }else{
@@ -302,10 +321,10 @@ class MyDatabaseModel{
      */
     public function vratProduktyZHotoveObjednavky($id_objednavka):array|null{
         $q = "SELECT * FROM ".TABLE_OBSAHUJE." WHERE id_objednavka=:id_objednavka;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":id_objednavka",$id_objednavka);
-        if($vystup->execute()){
-            $produkty = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id_objednavka",$id_objednavka);
+        if($vstup->execute()){
+            $produkty = $vstup->fetchAll();
             if(empty($produkty)){
                 return null;
             }else{
@@ -323,11 +342,11 @@ class MyDatabaseModel{
      */
     public function vratProduktZKosiku($id_objednavka,$id_produkt):array|null{
         $q = "SELECT * FROM ".TABLE_OBSAHUJE." WHERE id_objednavka=:id_objednavka AND id_produkt=:id_produkt;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":id_objednavka",$id_objednavka);
-        $vystup->bindValue(":id_produkt",$id_produkt);
-        if($vystup->execute()){
-            $ziskanyProdukt = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id_objednavka",$id_objednavka);
+        $vstup->bindValue(":id_produkt",$id_produkt);
+        if($vstup->execute()){
+            $ziskanyProdukt = $vstup->fetchAll();
             if(empty($ziskanyProdukt)){
                 return null;
             }else{
@@ -398,10 +417,10 @@ class MyDatabaseModel{
      */
     public function vratProdukt($id):array|null{
         $q = "SELECT * FROM ".TABLE_PRODUKT." WHERE id=:id;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":id",$id);
-        if($vystup->execute()){
-            $produkt = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":id",$id);
+        if($vstup->execute()){
+            $produkt = $vstup->fetchAll();
             if(empty($produkt)){
                 return null;
             }else{
@@ -417,9 +436,9 @@ class MyDatabaseModel{
      */
     public function vratProdukty():false|array|null{
         $q = "SELECT * FROM ".TABLE_PRODUKT;
-        $vystup = $this->pdo->prepare($q);
-        if($vystup->execute()){
-            $produkty = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        if($vstup->execute()){
+            $produkty = $vstup->fetchAll();
             if(empty($produkty)){
                 return null;
             }else{
@@ -432,10 +451,10 @@ class MyDatabaseModel{
 
     public function vratNesmazaneProdukty():false|array|null{
         $q = "SELECT * FROM ".TABLE_PRODUKT." WHERE odstraneno=:odstraneno;";
-        $vystup = $this->pdo->prepare($q);
-        $vystup->bindValue(":odstraneno",0);
-        if($vystup->execute()){
-            $produkty = $vystup->fetchAll();
+        $vstup = $this->pdo->prepare($q);
+        $vstup->bindValue(":odstraneno",0);
+        if($vstup->execute()){
+            $produkty = $vstup->fetchAll();
             if(empty($produkty)){
                 return null;
             }else{
@@ -541,8 +560,8 @@ class MyDatabaseModel{
         $vstup = $this->pdo->prepare($q);
         $vstup->bindValue(":foto",$foto);
         if($vstup->execute()){
-            $vystup = $vstup->fetchAll();
-            if(empty($vystup)){
+            $vstup = $vstup->fetchAll();
+            if(empty($vstup)){
                 return false;
             }
             return true;
@@ -553,10 +572,10 @@ class MyDatabaseModel{
 
 //    public function vratProduktPodleNazvuFoto($foto):false|array|null{
 //        $q = "SELECT * FROM ".TABLE_PRODUKT." WHERE foto=:foto;";
-//        $vystup = $this->pdo->prepare($q);
-//        $vystup->bindValue(":foto",$foto);
-//        if($vystup->execute()){
-//            $produkty = $vystup->fetchAll();
+//        $vstup = $this->pdo->prepare($q);
+//        $vstup->bindValue(":foto",$foto);
+//        if($vstup->execute()){
+//            $produkty = $vstup->fetchAll();
 //            if(empty($produkty)){
 //                return null;
 //            }else{
