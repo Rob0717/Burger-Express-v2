@@ -2,6 +2,7 @@
 
 namespace application\Controllers;
 use application\Models\MyDatabaseModel;
+use DateTimeImmutable;
 use HTMLPurifier;
 
 /**
@@ -20,6 +21,7 @@ class LoginController implements IController{
     /**
      * @param string $pageTitle
      * @return array
+     * @throws \Exception
      */
     public function show(string $pageTitle):array{
         global $tplData;
@@ -153,15 +155,21 @@ class LoginController implements IController{
         if(isset($tplData['objednavkyUzivatele'])){
             foreach($tplData['objednavkyUzivatele'] as $objednavkaUzivatele){
                 $id_obj = $objednavkaUzivatele['id'];
+                $date = new DateTimeImmutable($objednavkaUzivatele['datum']);
+                $datumObjednani = $date->format('d.m.Y');
                 $produkt = $this->db->vratProduktyZHotoveObjednavky($id_obj);
                 if(!empty($produkt)){
                     foreach($produkt as $p){ // $p produkt v kosiku
                         $pr = $this->db->vratProdukt($p['id_produkt']); // $pr produkt z tabulky produktu
-                        $tplData['objednavkyRadek'] .= "<tr><td>$id_obj</td><td>$pr[nazev]</td><td>$p[pocet_ks]</td></tr>";
+                        $tplData['objednavkyRadek'] .= "<div class='grid-cols-1'>$pr[nazev]</div><div class='grid-cols-1'>$p[pocet_ks]</div>
+                                                        <div class='grid-cols-1'>$pr[cena]</div><div class='grid-cols-1'></div>";
                         $tplData['celkovaCena'] += $p['pocet_ks'] * $pr['cena'];
                     }
-                    $tplData['objednavkyRadek'] .= "<tr><th>Cena celkem</th><td colspan='2'><b style='font-size: 20px;color: #3bb000'>$tplData[celkovaCena] Kč</b></td></tr>";
-                    $tplData['objednavkyRadek'] .= "<tr><td class='table-dark' colspan='3'></td></tr>";
+                    $tplData['objednavkyRadek'] .= "<div class='border-b-2 border-emerald-400 mt-12'></div>
+                                                    <div class='border-b-2 border-emerald-400 mt-12'></div>
+                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'>Celkem $tplData[celkovaCena] Kč</div>
+                                                    <div class='border-b-2 border-emerald-400 mt-6'>$datumObjednani</div>";
+                    //$tplData['objednavkyRadek'] .= "";
                     $tplData['celkovaCena'] = 0;
                 }
             }
