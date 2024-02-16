@@ -237,10 +237,10 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <?php if($tplData['role'] != 2 && $tplData['role'] != 3){ ?>
         <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-1 mr-1 pb-3 border-emerald-600 rounded-t-2xl bg-emerald-200">Moje Objednávky</div>
         <div class="grid grid-cols-4 justify-center items-center bg-emerald-200 border-l-2 border-r-2 border-b-2 border-emerald-600 rounded-b-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
-            <div class="grid-cols-1">Produkt</div>
-            <div class="grid-cols-1">Počet</div>
-            <div class="grid-cols-1">Cena</div>
-            <div class="grid-cols-1">Datum</div>
+            <div class="grid-cols-1 font-bold">Produkt</div>
+            <div class="grid-cols-1 font-bold">Počet</div>
+            <div class="grid-cols-1 font-bold">Cena</div>
+            <div class="grid-cols-1 font-bold">Datum</div>
             <?= $tplData['objednavkyRadek']; ?>
         </div>
     <?php } ?>
