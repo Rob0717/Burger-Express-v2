@@ -205,7 +205,12 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
                     <label class="mr-3" for="smerovacicislo">PSČ:</label>
                     <input class="text-center bg-emerald-100" type="number" min="10000" max="79999" name="smerovacicislo" id="smerovacicislo" value="<?= $tplData['pscPrihlaseny'] ?>">
                 </div>
-
+                <div class="grid justify-center items-center">
+                    <div>O mně:</div>
+                    <div class="bg-emerald-100 p-1 text-center text-balance">
+                        <?= $tplData['o_mne'] ?>
+                    </div>
+                </div>
                 <div class="flex justify-center items-center">
                     <input class="bg-emerald-400 hover:bg-emerald-300 w-full" type="submit" name="ulozitUdaje" value="Uložit údaje">
                 </div>
@@ -249,15 +254,15 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <link rel="stylesheet" href="libraries/summernote/summernote-lite.min.css">
     <script src="libraries/summernote/summernote-lite.min.js"></script>
 
-    <div class="container">
-        <h2 style="color: white;padding-top: 20px;">O mně</h2>
-    </div>
-    <div style="background-color: #b9b9b9; padding: 0;" class="container">
+    <div class="bg-emerald-300 border-2 rounded-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
+        <div class="flex justify-center items-center bg-emerald-300 mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">
+            <h2>O mně</h2>
+        </div>
         <form method="post">
-                <textarea style="color: white" id="summernote" name="obsah"></textarea>
             <label for="summernote"></label>
+            <textarea class="flex" id="summernote" name="obsah"></textarea>
             <div class="container">
-                <button type="submit" name="uloz" class="container btn btn-secondary"><b>Ulož</b></button>
+                <button type="submit" name="uloz" class="bg-emerald-200 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full"><b>Ulož</b></button>
             </div>
         </form>
     </div>
@@ -276,12 +281,18 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <?php
     if(isset($_POST['uloz'])){
     ?>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Popisek byl úspěšně uložen',
-            })
-        </script>
+        <div id="alert_success" class="fixed justify-center right-10 bottom-10 z-50 opacity-100 bg-green-200 border-t-4 border-teal-500 rounded-b font-roboto text-teal-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex justify-center items-center">
+                <div class="py-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                </div>
+                <div class="pl-3">
+                    <p class="font-bold">Data upravena</p>
+                    <p class="text-sm">Příspěvek o Vás byl upraven.</p>
+                </div>
+            </div>
+        </div>
     <?php
     }
     ?>

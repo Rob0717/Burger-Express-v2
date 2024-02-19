@@ -118,6 +118,7 @@ class LoginController implements IController{
             $tplData['cpPrihlaseny'] = $user['cp'];
             $tplData['pscPrihlaseny'] = $user['psc'];
             $tplData['idpravoPrihlaseny'] = $user['id_pravo'];
+            $tplData['o_mne'] = $user['o_mne'];
             switch ($tplData['idpravoPrihlaseny']){
                 case 1:
                     $tplData['nazevPravoPrihlaseny'] = 'SuperAdmin';
@@ -181,6 +182,7 @@ class LoginController implements IController{
             $purifier = new HTMLPurifier();
             $clean_o_mne = $purifier->purify(html_entity_decode($_POST['obsah']));
             $this->db->upravPopisekUzivatele($uziv['id'],$clean_o_mne);
+            $tplData['o_mne'] = $clean_o_mne;
         }
 
         return $tplData;
