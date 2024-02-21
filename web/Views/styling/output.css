@@ -634,10 +634,6 @@ video {
   margin: 1.25rem;
 }
 
-.m-20{
-  margin: 5rem;
-}
-
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -696,26 +692,6 @@ video {
 
 .mt-6{
   margin-top: 1.5rem;
-}
-
-.mt-20{
-  margin-top: 5rem;
-}
-
-.ml-20{
-  margin-left: 5rem;
-}
-
-.mr-20{
-  margin-right: 5rem;
-}
-
-.ml-10{
-  margin-left: 2.5rem;
-}
-
-.block{
-  display: block;
 }
 
 .flex{
@@ -822,12 +798,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-5 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]){
@@ -1224,6 +1194,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+@media (min-width: 640px){
+  .sm\:space-x-5 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+}
+
 @media (min-width: 768px){
   .md\:relative{
     position: relative;
@@ -1291,16 +1269,8 @@ video {
     grid-column: span 1 / span 1;
   }
 
-  .lg\:col-span-2{
-    grid-column: span 2 / span 2;
-  }
-
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:text-2xl{
@@ -1319,17 +1289,7 @@ video {
     grid-column: span 2 / span 2;
   }
 
-  .xl\:flex{
-    display: flex;
-  }
-
   .xl\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .xl\:space-x-2 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 }
