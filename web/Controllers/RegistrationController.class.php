@@ -29,6 +29,7 @@ class RegistrationController implements IController{
         $tplData['jePrihlasen'] = $this->db->jeUzivatelPrihlasen();
         /** Titulek stránky přihlášeného uživatele pro uživatelskou sekci */
         $tplData['prihlasenTitle'] = $this->db->jeUzivatelPrihlasen() ? " Profil" : " Přihlášení";
+        $tplData['novyUzivatel'] = "";
         if($tplData['jePrihlasen']){
             /** Získání práva, pokud je uživatel přihlášen */
             $tplData['role'] = $this->db->ziskejDataUzivatele()['id_pravo'];
@@ -51,6 +52,7 @@ class RegistrationController implements IController{
         ){
             /** Pokud uživatel již není registrován, zaregistruji ho */
             $res = $this->db->registrujUzivatele($_POST['name'],$_POST['surname'],$_POST['email'],$_POST['password1'],$_POST['okres'],$_POST['city'],$_POST['street'],$_POST['housenumber'],$_POST['psc']);
+            $tplData['novyUzivatel'] = $this->db->vratUzivatele($_POST['email']);
             if($res){
                 $tplData['jeRegistrovan'] = true;
             }else{
