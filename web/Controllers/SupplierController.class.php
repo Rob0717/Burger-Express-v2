@@ -134,7 +134,7 @@ class SupplierController implements IController{
                                         <img class='w-auto' src='resources/".$produkt['foto']."' alt='".$produkt['nazev']."'>
                                         <form class='grid p-1 space-y-1' method='POST' enctype='multipart/form-data'>
                                             <input class='bg-emerald-300' name='noveFoto$produkt[id]' type='file' accept='image/jpg,image/jpeg,image/png,image/gif'>
-                                            <input class='bg-emerald-400 hover:bg-emerald-300' type='submit' name='ulozFoto$produkt[id]' value='Uložit foto'>
+                                            <input class='bg-emerald-400 hover:bg-emerald-300 text-white' type='submit' name='ulozFoto$produkt[id]' value='Uložit foto'>
                                         </form>
                                         
                                         <form method='POST' class='grid space-y-5 p-1'>
@@ -155,8 +155,8 @@ class SupplierController implements IController{
                                                 <input class='bg-emerald-100 w-full text-center' id='KonecnyPocet$produkt[id]' name='KonecnyPocet$produkt[id]' type='number' min='1' max='1000' value='$produkt[uskladneno_ks]'>
                                             </div>
                                             <div class='flex justify-center'>
-                                                <button class='bg-emerald-400 w-full hover:bg-emerald-300' id='btnUpravProdukt$produkt[id]' name='btnUpravProdukt$produkt[id]'>Upravit</button>
-                                                <button class='bg-red-500 w-full hover:bg-red-400' onclick='return confirm(msg)' id='btnOdstran$produkt[id]' name='btnOdstran$produkt[id]'>Odebrat</button>
+                                                <button class='bg-emerald-400 w-full hover:bg-emerald-300 text-white' id='btnUpravProdukt$produkt[id]' name='btnUpravProdukt$produkt[id]'>Upravit</button>
+                                                <button class='bg-red-500 w-full hover:bg-red-400 text-white' onclick='return confirm(msg)' id='btnOdstran$produkt[id]' name='btnOdstran$produkt[id]'>Odebrat</button>
                                             </div>
                                                         
                                             <input type='hidden' name='puvodni_pocet' value='$produkt[uskladneno_ks]'>
@@ -168,7 +168,7 @@ class SupplierController implements IController{
                                         </form>
                                         <form method='post' class='m-1 font-roboto drop-shadow-lg'>
                                             <div class='flex justify-center'>
-                                                <input class='bg-red-500 w-full pt-2 pb-2 hover:bg-red-400' onclick='return confirm(msgUplneOdstraneni)' name='btnUplneOdstraneni$produkt[id]' type='submit' value='ODSTRANIT'>
+                                                <input class='bg-red-500 w-full pt-2 pb-2 hover:bg-red-400 text-white' onclick='return confirm(msgUplneOdstraneni)' name='btnUplneOdstraneni$produkt[id]' type='submit' value='ODSTRANIT'>
                                             </div>
                                         </form>    
                                      </div>";

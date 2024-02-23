@@ -15,27 +15,27 @@ if((isset($tplData['role']) && $tplData['role'] % 2 == 0) || !$tplData['jePrihla
 }else{
 ?>
     <form class="grid justify-center m-3 pb-3 space-y-5 bg-emerald-300 font-roboto bg-opacity-75 border-2 border-emerald-300 rounded-2xl" method="post" enctype="multipart/form-data">
-        <h1 class="mt-3 text-center font-montserrat font-bold text-xl">Nový produkt</h1>
+        <h1 class="mt-3 text-center font-montserrat font-bold text-xl text-white">Nový produkt</h1>
         <div class="grid pl-1 pr-1">
-            <label for="nazevNovy">Název produktu:</label>
+            <label class="text-white" for="nazevNovy">Název produktu:</label>
             <input class="bg-emerald-100" type="text" name="nazevNovy" id="nazevNovy">
         </div>
         <div class="grid pl-1 pr-1">
             <input type="file" name="souborNovy" id="souborNovy" accept='image/jpg,image/jpeg,image/png,image/gif'>
         </div>
         <div class="grid pl-1 pr-1">
-            <label for="cenaNovy">Cena:</label>
+            <label class="text-white" for="cenaNovy">Cena:</label>
             <input class="text-center bg-emerald-100" type="number" name="cenaNovy" id="cenaNovy" min="50" max="1000">
         </div>
         <div class="grid pl-1 pr-1">
-            <label for="ksNovy">Počet ks k uskladnění:</label>
+            <label class="text-white" for="ksNovy">Počet ks k uskladnění:</label>
             <input class="text-center bg-emerald-100" type="number" name="ksNovy" id="ksNovy" min="0" max="1000">
         </div>
         <div class="grid pl-1 pr-1">
-            <label for="popisNovy">Popis:</label>
+            <label class="text-white" for="popisNovy">Popis:</label>
             <textarea class="bg-emerald-100" name="popisNovy" id="popisNovy"></textarea>
         </div>
-        <input class="bg-emerald-500 pt-2 pb-2 hover:bg-emerald-400" type="submit" name="vlozNovy" id="vlozNovy" value="Uložit">
+        <input class="bg-emerald-500 pt-2 pb-2 hover:bg-emerald-400 text-white" type="submit" name="vlozNovy" id="vlozNovy" value="Uložit">
     </form>
 
     <?php
