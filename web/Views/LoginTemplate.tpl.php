@@ -137,7 +137,7 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
                 </div>
             </div>
             <div class="flex justify-center">
-                <button class="bg-emerald-300 p-2 hover:bg-emerald-200" type="submit" name="prihlas">Přihlásit</button>
+                <button class="bg-emerald-300 p-2 hover:bg-emerald-200 text-white" type="submit" name="prihlas">Přihlásit</button>
             </div>
         </form>
     </div>
@@ -264,7 +264,7 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
             <label for="summernote"></label>
             <textarea class="flex" id="summernote" name="obsah"></textarea>
             <div class="container">
-                <button type="submit" name="uloz" class="bg-emerald-300 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full"><b>Ulož</b></button>
+                <button type="submit" name="uloz" class="bg-emerald-300 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full text-white"><b>Ulož</b></button>
             </div>
         </form>
     </div>

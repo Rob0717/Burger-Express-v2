@@ -118,7 +118,7 @@ if(!$tplData['jePrihlasen']){
                 </div>
             </div>
             <div class="flex justify-center items-center col-span-1 md:col-span-2">
-                <button class="bg-emerald-300 p-2 hover:bg-emerald-200" type="submit" name="registruj">Registrovat</button>
+                <button class="bg-emerald-300 p-2 hover:bg-emerald-200 text-white" type="submit" name="registruj">Registrovat</button>
             </div>
         </form>
     </div>
