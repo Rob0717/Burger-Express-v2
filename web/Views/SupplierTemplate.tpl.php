@@ -21,7 +21,7 @@ if((isset($tplData['role']) && $tplData['role'] % 2 == 0) || !$tplData['jePrihla
             <input class="bg-emerald-100" type="text" name="nazevNovy" id="nazevNovy">
         </div>
         <div class="grid pl-1 pr-1">
-            <input type="file" name="souborNovy" id="souborNovy" accept='image/jpg,image/jpeg,image/png,image/gif'>
+            <input class="text-white" type="file" name="souborNovy" id="souborNovy" accept='image/jpg,image/jpeg,image/png,image/gif'>
         </div>
         <div class="grid pl-1 pr-1">
             <label class="text-white" for="cenaNovy">Cena:</label>

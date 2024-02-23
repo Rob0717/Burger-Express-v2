@@ -163,14 +163,13 @@ class LoginController implements IController{
                     foreach($produkt as $p){ // $p produkt v kosiku
                         $pr = $this->db->vratProdukt($p['id_produkt']); // $pr produkt z tabulky produktu
                         $tplData['objednavkyRadek'] .= "<div class='grid-cols-1'>$pr[nazev]</div><div class='grid-cols-1'>$p[pocet_ks]</div>
-                                                        <div class='grid-cols-1'>$pr[cena]</div><div class='grid-cols-1'></div>";
+                                                        <div class='grid-cols-1 font-extrabold text-green-500'>$pr[cena]</div><div class='grid-cols-1'></div>";
                         $tplData['celkovaCena'] += $p['pocet_ks'] * $pr['cena'];
                     }
                     $tplData['objednavkyRadek'] .= "<div class='border-b-2 border-emerald-400 mt-12'></div>
-                                                    <div class='border-b-2 border-emerald-400 mt-12'></div>
-                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'>Celkem $tplData[celkovaCena] Kč</div>
+                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'>Celkem:</div>
+                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'><span class='text-green-700'> $tplData[celkovaCena]</span> Kč</div>
                                                     <div class='border-b-2 border-emerald-400 mt-6'>$datumObjednani</div>";
-                    //$tplData['objednavkyRadek'] .= "";
                     $tplData['celkovaCena'] = 0;
                 }
             }

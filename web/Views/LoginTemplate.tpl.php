@@ -212,7 +212,7 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <input class="bg-emerald-400 hover:bg-emerald-300 w-full" type="submit" name="ulozitUdaje" value="Uložit údaje">
+                    <input class="bg-emerald-400 hover:bg-emerald-300 w-full text-white" type="submit" name="ulozitUdaje" value="Uložit údaje">
                 </div>
             </form>
 
@@ -233,15 +233,17 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
                 </div>
 
                 <div>
-                    <input class="bg-emerald-400 hover:bg-emerald-300 w-full" type="submit" name="zmenHeslo" value="Změnit heslo">
+                    <input class="bg-emerald-400 hover:bg-emerald-300 w-full text-white" type="submit" name="zmenHeslo" value="Změnit heslo">
                 </div>
             </form>
         </div>
     </div>
 
     <?php if($tplData['role'] != 2 && $tplData['role'] != 3){ ?>
-        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-1 mr-1 pb-3 border-emerald-600 rounded-t-2xl bg-emerald-200">Moje Objednávky</div>
-        <div class="grid grid-cols-4 justify-center items-center bg-emerald-200 border-l-2 border-r-2 border-b-2 border-emerald-600 rounded-b-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
+        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-1 mr-1 pb-3 border-emerald-600 rounded-t-2xl bg-emerald-200">
+            <div class="bg-emerald-300 border-2 border-emerald-400 w-full flex justify-center items-center mt-2 ml-2 mr-2 rounded-t-2xl">Moje Objednávky</div>
+        </div>
+        <div class="grid grid-cols-4 justify-center items-center bg-emerald-200 border-l-2 border-r-2 border-b-2 border-emerald-600 rounded-b-2xl p-3 ml-1 mr-1 mb-1 font-roboto">
             <div class="grid-cols-1 font-bold">Produkt</div>
             <div class="grid-cols-1 font-bold">Počet</div>
             <div class="grid-cols-1 font-bold">Cena</div>
@@ -254,15 +256,15 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <link rel="stylesheet" href="libraries/summernote/summernote-lite.min.css">
     <script src="libraries/summernote/summernote-lite.min.js"></script>
 
-    <div class="bg-emerald-300 border-2 rounded-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
-        <div class="flex justify-center items-center bg-emerald-300 mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">
+    <div class="bg-emerald-200 border-2 rounded-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
+        <div class="flex justify-center items-center bg-emerald-300 border-2 border-emerald-400 rounded-t-2xl mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">
             <h2>O mně</h2>
         </div>
         <form method="post">
             <label for="summernote"></label>
             <textarea class="flex" id="summernote" name="obsah"></textarea>
             <div class="container">
-                <button type="submit" name="uloz" class="bg-emerald-200 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full"><b>Ulož</b></button>
+                <button type="submit" name="uloz" class="bg-emerald-300 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full"><b>Ulož</b></button>
             </div>
         </form>
     </div>

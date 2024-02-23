@@ -133,7 +133,7 @@ class SupplierController implements IController{
             $tplData['produkty'] .= "<div class='m-3 grid justify-center bg-emerald-200 font-roboto drop-shadow-lg'>
                                         <img class='w-auto' src='resources/".$produkt['foto']."' alt='".$produkt['nazev']."'>
                                         <form class='grid p-1 space-y-1' method='POST' enctype='multipart/form-data'>
-                                            <input class='bg-emerald-300' name='noveFoto$produkt[id]' type='file' accept='image/jpg,image/jpeg,image/png,image/gif'>
+                                            <input class='bg-emerald-300 text-white' name='noveFoto$produkt[id]' type='file' accept='image/jpg,image/jpeg,image/png,image/gif'>
                                             <input class='bg-emerald-400 hover:bg-emerald-300 text-white' type='submit' name='ulozFoto$produkt[id]' value='Uložit foto'>
                                         </form>
                                         
