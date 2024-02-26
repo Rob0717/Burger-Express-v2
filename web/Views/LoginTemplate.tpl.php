@@ -143,35 +143,35 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     </div>
 <?php }else{ ?>
     <div>
-        <form method="POST" class="bg-emerald-200 rounded-2xl pl-3 grid grid-cols-4 justify-center ml-1 mr-1 mt-3 mb-2 uppercase border-2 border-emerald-300">
+        <form method="POST" class="bg-emerald-300 text-white rounded-2xl pl-3 grid grid-cols-4 justify-center ml-2 mr-2 mt-3 mb-2 uppercase border-2 border-emerald-200">
             <h2 class="font-montserrat text-xl font-bold col-span-3">Profil</h2>
             <input class="font-roboto font-thin col-span-1 bg-red-400 hover:bg-red-300 rounded-r-2xl text-gray-200 hover:text-gray-700" type="submit" name="odhlas" value="Odhlásit se">
         </form>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 bg-emerald-200 border-2 border-emerald-300 m-1 p-3 rounded-2xl font-roboto">
+        <div class="grid grid-cols-1 md:grid-cols-2 bg-emerald-300 border-2 border-emerald-200 ml-2 mr-2 mb-1 p-3 rounded-2xl font-roboto">
             <form class="grid justify-center md:justify-center items-center pl-3 space-x-2 space-y-3 mb-10 md:mb-0" method="POST">
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="jmeno">Jméno:</label>
+                    <label class="mr-3 text-white" for="jmeno">Jméno:</label>
                     <input class="text-center bg-emerald-100" id="jmeno" name="jmeno" type="text" value="<?= $tplData['jmenoPrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="prijmeni">Příjmení:</label>
+                    <label class="mr-3 text-white" for="prijmeni">Příjmení:</label>
                     <input class="text-center bg-emerald-100" id="prijmeni" name="prijmeni" type="text" value="<?= $tplData['prijmeniPrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="role">Role:</label>
+                    <label class="mr-3 text-white" for="role">Role:</label>
                     <input class="text-center" readonly disabled id="role" type="text" value="<?=$tplData['nazevPravoPrihlaseny']?>" >
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="e-mail">E-mail:</label>
+                    <label class="mr-3 text-white" for="e-mail">E-mail:</label>
                     <input class="text-center bg-emerald-100" id="e-mail" name="e-mail" type="email" value="<?= $tplData['emailPrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="mesto">Město:</label>
+                    <label class="mr-3 text-white" for="mesto">Město:</label>
                     <input class="text-center bg-emerald-100" id="mesto" name="mesto" type="text" value="<?= $tplData['mestoPrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="okres">Okres:</label>
+                    <label class="mr-3 text-white" for="okres">Okres:</label>
                     <input class="text-center bg-emerald-100" list="okresy" value='<?= $tplData['okresPrihlaseny'] ?>' name="okres" id="okres">
                     <datalist id="okresy">
                         <?php
@@ -194,19 +194,19 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
                     </datalist>
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="ulice">Ulice:</label>
+                    <label class="mr-3 text-white" for="ulice">Ulice:</label>
                     <input class="text-center bg-emerald-100" id="ulice" name="ulice" type="text" value="<?= $tplData['ulicePrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="cislopopisne">Číslo popisné:</label>
+                    <label class="mr-3 text-white" for="cislopopisne">Číslo popisné:</label>
                     <input class="text-center bg-emerald-100" type="number" min="1" max="1000" name="cislopopisne" id="cislopopisne" value="<?= $tplData['cpPrihlaseny'] ?>">
                 </div>
                 <div class="flex justify-center items-center">
-                    <label class="mr-3" for="smerovacicislo">PSČ:</label>
+                    <label class="mr-3 text-white" for="smerovacicislo">PSČ:</label>
                     <input class="text-center bg-emerald-100" type="number" min="10000" max="79999" name="smerovacicislo" id="smerovacicislo" value="<?= $tplData['pscPrihlaseny'] ?>">
                 </div>
                 <div class="grid justify-center items-center">
-                    <div>O mně:</div>
+                    <div class="text-white">O mně:</div>
                     <div class="bg-emerald-100 p-1 text-center text-balance">
                         <?= $tplData['o_mne'] ?>
                     </div>
@@ -218,18 +218,18 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
 
             <form class="grid justify-center items-center space-y-1" method="POST">
                 <div class="grid">
-                    <label for="stareHeslo">Současné heslo:</label>
-                    <input class="bg-emerald-100" type="password" id="stareHeslo" name="stareHeslo">
+                    <label class="text-white" for="stareHeslo">Současné heslo:</label>
+                    <input class="bg-emerald-100 text-center" type="password" id="stareHeslo" name="stareHeslo">
                 </div>
 
                 <div class="grid">
-                    <label for="noveHeslo">Nové heslo:</label>
-                    <input class="bg-emerald-100" type="password" id="noveHeslo" name="noveHeslo">
+                    <label class="text-white" for="noveHeslo">Nové heslo:</label>
+                    <input class="bg-emerald-100 text-center" type="password" id="noveHeslo" name="noveHeslo">
                 </div>
 
                 <div class="grid">
-                    <label for="noveHesloZnovu">Nové heslo znovu:</label>
-                    <input class="bg-emerald-100" type="password" id="noveHesloZnovu" name="noveHesloZnovu">
+                    <label class="text-white" for="noveHesloZnovu">Nové heslo znovu:</label>
+                    <input class="bg-emerald-100 text-center" type="password" id="noveHesloZnovu" name="noveHesloZnovu">
                 </div>
 
                 <div>
@@ -240,10 +240,10 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     </div>
 
     <?php if($tplData['role'] != 2 && $tplData['role'] != 3){ ?>
-        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-1 mr-1 pb-3 border-emerald-600 rounded-t-2xl bg-emerald-200">
-            <div class="bg-emerald-300 border-2 border-emerald-400 w-full flex justify-center items-center mt-2 ml-2 mr-2 rounded-t-2xl">Moje Objednávky</div>
+        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-2 mr-2 pb-3 border-emerald-200 rounded-t-2xl bg-emerald-300">
+            <div class="bg-emerald-400 border-2 border-emerald-200 w-full flex justify-center items-center mt-2 ml-2 mr-2 rounded-t-2xl text-white">Moje Objednávky</div>
         </div>
-        <div class="grid grid-cols-4 justify-center items-center bg-emerald-200 border-l-2 border-r-2 border-b-2 border-emerald-600 rounded-b-2xl p-3 ml-1 mr-1 mb-1 font-roboto">
+        <div class="grid grid-cols-4 justify-center items-center bg-emerald-300 border-l-2 border-r-2 border-b-2 border-emerald-200 rounded-b-2xl p-3 ml-2 mr-2 mb-1 font-roboto">
             <div class="grid-cols-1 font-bold">Produkt</div>
             <div class="grid-cols-1 font-bold">Počet</div>
             <div class="grid-cols-1 font-bold">Cena</div>
@@ -256,15 +256,15 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <link rel="stylesheet" href="libraries/summernote/summernote-lite.min.css">
     <script src="libraries/summernote/summernote-lite.min.js"></script>
 
-    <div class="bg-emerald-200 border-2 rounded-2xl p-1 ml-1 mr-1 mb-1 font-roboto">
-        <div class="flex justify-center items-center bg-emerald-300 border-2 border-emerald-400 rounded-t-2xl mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">
-            <h2>O mně</h2>
-        </div>
+    <div class="bg-emerald-300 border-2 rounded-2xl p-1 ml-2 mr-2 mb-1 border-emerald-200 font-roboto">
+<!--        <div class="flex justify-center items-center bg-emerald-300 border-2 border-emerald-400 rounded-t-2xl mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">-->
+<!--            <h2>O mně</h2>-->
+<!--        </div>-->
         <form method="post">
             <label for="summernote"></label>
             <textarea class="flex" id="summernote" name="obsah"></textarea>
             <div class="container">
-                <button type="submit" name="uloz" class="bg-emerald-300 hover:bg-emerald-100 border-2 border-emerald-300 rounded-b-2xl w-full text-white"><b>Ulož</b></button>
+                <button type="submit" name="uloz" class="font-montserrat bg-emerald-400 hover:bg-emerald-200 border-2 border-emerald-300 rounded-b-2xl w-full text-white"><b>Ulož</b></button>
             </div>
         </form>
     </div>
@@ -279,6 +279,31 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
             ],
         });
     </script>
+    <style>
+        /* Změna barvy panelu Summernote */
+        .note-editor {
+            --tw-bg-opacity: 1;
+            background-color: rgb(110 231 183 / var(--tw-bg-opacity));
+        }
+
+        /* Změna barvy nástrojové lišty */
+        .note-toolbar {
+            --tw-bg-opacity: 1;
+            background-color: rgb(52 211 153 / var(--tw-bg-opacity));
+        }
+
+        /* Změna barvy tlačítek v nástrojové liště */
+        .note-btn {
+            --tw-bg-opacity: 1;
+            background-color: rgb(110 231 183 / var(--tw-bg-opacity));; /* Barva textu tlačítka */
+        }
+
+        .note-btn:active::after{
+            background-color: red;
+        }
+
+        /* Další možné úpravy podle potřeby */
+    </style>
 
     <?php
     if(isset($_POST['uloz'])){

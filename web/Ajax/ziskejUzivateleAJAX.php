@@ -23,26 +23,38 @@ mysqli_select_db($con,"web");
 $sql="SELECT * FROM uzivatel WHERE id ='".$q."'";
 $result = mysqli_query($con,$sql);
 
-echo "<div class='container'><div class='table-responsive'><table class='table table-hover table-warning'>
-<tr>
-<th>ID</th>
-<th>Jméno</th>
-<th>Příjmení</th>
-<th>E-mail</th>
-<th>ID Právo</th>
-<th>Město</th>
-</tr>";
+echo
+"<div class='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 m-2 border-2 border-emerald-200 bg-emerald-300'>
+    <div class='grid-cols-1 text-center'>Jméno</div>
+    <div class='grid-cols-1 text-center'>Příjmení</div>
+    <div class='grid-cols-1 text-center'>E-mail</div>
+    <div class='grid-cols-1 text-center'>ID Právo</div>
+    <div class='grid-cols-1 text-center'>Město</div>
+</div>";
+
+//echo "<div class='container'><div class='table-responsive'><table class='table table-hover table-warning'>
+//<tr>
+//<th>ID</th>
+//<th>Jméno</th>
+//<th>Příjmení</th>
+//<th>E-mail</th>
+//<th>ID Právo</th>
+//<th>Město</th>
+//</tr>";
 $idUziv = 0;
 while($row = mysqli_fetch_array($result)){
-    echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>"; $idUziv = $row['id'];
-    echo "<td>" . $row['jmeno'] . "</td>";
-    echo "<td>" . $row['prijmeni'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "<td>" . $row['id_pravo'] . "</td>";
-    echo "<td>" . $row['mesto'] . "</td>";
-    echo "</tr>";
+    $idUziv = $row['id'];
+    echo
+    "<div class='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 flex-wrap m-2 border-2 border-emerald-200 bg-emerald-300'>
+        <div class='grid-cols-1 text-center'>".$row['jmeno']."</div>
+        <div class='grid-cols-1 text-center'>".$row['prijmeni']."</div>
+        <div class='grid-cols-1 text-center'>".$row['email']."</div>
+        <div class='grid-cols-1 text-center'>".$row['id_pravo']."</div>
+        <div class='grid-cols-1 text-center'>".$row['mesto']."</div>
+    </div>";
 }
+
+
 echo "<tr>
             <td colspan='6'>
                 <select name='pravo' onchange='zmenPravo($idUziv,this.value,$idpp)'>
