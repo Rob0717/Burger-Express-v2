@@ -125,7 +125,7 @@ if(!$tplData['jePrihlasen']){
 <?php
 }else{
 ?>
-    <h2 class="text-center" style="padding-top: 20px;color:white">Pouze pro nepřihlášené uživatele.</h2>
+    <h2 class="text-xl text-center font-bold font-roboto mt-5">Pouze pro nepřihlášené uživatele.</h2>
 <?php
 }
 ?>

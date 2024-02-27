@@ -163,12 +163,12 @@ class LoginController implements IController{
                     foreach($produkt as $p){ // $p produkt v kosiku
                         $pr = $this->db->vratProdukt($p['id_produkt']); // $pr produkt z tabulky produktu
                         $tplData['objednavkyRadek'] .= "<div class='grid-cols-1 text-white'>$pr[nazev]</div><div class='grid-cols-1 text-white'>$p[pocet_ks]</div>
-                                                        <div class='grid-cols-1 font-extrabold text-green-500'>$pr[cena]</div><div class='grid-cols-1'></div>";
+                                                        <div class='grid-cols-1 font-thin text-emerald-100'>$pr[cena]</div><div class='grid-cols-1'></div>";
                         $tplData['celkovaCena'] += $p['pocet_ks'] * $pr['cena'];
                     }
                     $tplData['objednavkyRadek'] .= "<div class='border-b-2 border-emerald-400 mt-12'></div>
-                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'>Celkem:</div>
-                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'><span class='text-green-700'> $tplData[celkovaCena]</span> Kč</div>
+                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6 text-gray-700'>Celkem:</div>
+                                                    <div class='border-b-2 border-emerald-400 font-bold mt-6'><span class='text-green-700'> $tplData[celkovaCena]</span><span class='text-gray-700'> Kč</span></div>
                                                     <div class='border-b-2 border-emerald-400 mt-6 text-white'>$datumObjednani</div>";
                     $tplData['celkovaCena'] = 0;
                 }

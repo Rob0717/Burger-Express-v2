@@ -143,12 +143,12 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     </div>
 <?php }else{ ?>
     <div>
-        <form method="POST" class="bg-emerald-300 text-white rounded-2xl pl-3 grid grid-cols-4 justify-center ml-2 mr-2 mt-3 mb-2 uppercase border-2 border-emerald-200">
+        <form method="POST" class="bg-emerald-400 text-white rounded-2xl pl-3 grid grid-cols-4 justify-center ml-2 mr-2 mt-3 mb-2 uppercase border-2 border-emerald-300">
             <h2 class="font-montserrat text-xl font-bold col-span-3">Profil</h2>
             <input class="font-roboto font-thin col-span-1 bg-red-400 hover:bg-red-300 rounded-r-2xl text-gray-200 hover:text-gray-700" type="submit" name="odhlas" value="Odhlásit se">
         </form>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 bg-emerald-300 border-2 border-emerald-200 ml-2 mr-2 mb-1 p-3 rounded-2xl font-roboto">
+        <div class="grid grid-cols-1 md:grid-cols-2 bg-emerald-300 bg-opacity-75 border-2 border-emerald-300 ml-2 mr-2 mb-1 p-3 rounded-2xl font-roboto">
             <form class="grid justify-center md:justify-center items-center pl-3 space-x-2 space-y-3 mb-10 md:mb-0" method="POST">
                 <div class="flex justify-center items-center">
                     <label class="mr-3 text-white" for="jmeno">Jméno:</label>
@@ -240,14 +240,14 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     </div>
 
     <?php if($tplData['role'] != 2 && $tplData['role'] != 3){ ?>
-        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-2 mr-2 pb-3 border-emerald-200 rounded-t-2xl bg-emerald-300">
-            <div class="bg-emerald-400 border-2 border-emerald-200 w-full flex justify-center items-center mt-2 ml-2 mr-2 rounded-t-2xl text-white">Moje Objednávky</div>
+        <div class="flex justify-center items-center border-t-2 border-l-2 border-r-2 text-xl font-bold font-montserrat ml-2 mr-2 pb-3 border-emerald-300 rounded-t-2xl bg-emerald-300 bg-opacity-75">
+            <div class="bg-emerald-400 border-b-2 border-emerald-200 w-full flex justify-center items-center rounded-t-2xl text-white">Moje Objednávky</div>
         </div>
-        <div class="grid grid-cols-4 justify-center items-center bg-emerald-300 border-l-2 border-r-2 border-b-2 border-emerald-200 rounded-b-2xl p-3 ml-2 mr-2 mb-1 font-roboto">
-            <div class="grid-cols-1 font-bold">Produkt</div>
-            <div class="grid-cols-1 font-bold">Počet</div>
-            <div class="grid-cols-1 font-bold">Cena</div>
-            <div class="grid-cols-1 font-bold">Datum</div>
+        <div class="grid grid-cols-4 justify-center items-center bg-emerald-300 bg-opacity-75 border-l-2 border-r-2 border-b-2 border-emerald-300 rounded-b-2xl p-3 ml-2 mr-2 mb-1 font-roboto">
+            <div class="grid-cols-1 font-extrabold text-gray-700">Produkt</div>
+            <div class="grid-cols-1 font-extrabold text-gray-700">Počet</div>
+            <div class="grid-cols-1 font-extrabold text-gray-700">Cena</div>
+            <div class="grid-cols-1 font-extrabold text-gray-700">Datum</div>
             <?= $tplData['objednavkyRadek']; ?>
         </div>
     <?php } ?>
@@ -256,10 +256,10 @@ if(isset($_POST['zmenHeslo']) && $tplData['hesloZmeneno']){
     <link rel="stylesheet" href="libraries/summernote/summernote-lite.min.css">
     <script src="libraries/summernote/summernote-lite.min.js"></script>
 
-    <div class="bg-emerald-300 border-2 rounded-2xl p-1 ml-2 mr-2 mb-1 border-emerald-200 font-roboto">
-<!--        <div class="flex justify-center items-center bg-emerald-300 border-2 border-emerald-400 rounded-t-2xl mt-1 ml-1 mr-1 font-montserrat font-bold text-xl">-->
-<!--            <h2>O mně</h2>-->
-<!--        </div>-->
+    <div class="bg-emerald-300 border-2 rounded-2xl p-1 ml-2 mr-2 mb-1 border-emerald-300 font-bold">
+        <div class="bg-emerald-400 border-b-2 border-emerald-200 w-full flex justify-center items-center rounded-t-2xl text-white text-xl font-montserrat">
+            O mně
+        </div>
         <form method="post">
             <label for="summernote"></label>
             <textarea class="flex" id="summernote" name="obsah"></textarea>
