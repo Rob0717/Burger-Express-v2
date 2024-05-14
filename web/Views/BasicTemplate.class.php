@@ -47,7 +47,7 @@ class BasicTemplate implements IView{
                         }
                     ?>
                 </title>
-                
+
                 <link rel="shortcut icon" href="resources/burger-tab-icon.ico">
                 <link rel="stylesheet" href="web/Views/styling/output.css">
             </head>
@@ -132,8 +132,10 @@ class BasicTemplate implements IView{
                                             </a>
                                         <?php } ?>
                                     </div>
+                                <div class="flex justify-end pr-5 md:pr-0 md:justify-center items-end pt-0 pb-5 md:pt-20 md:pb-10 font-montserrat font-bold" id="time"></div>
                             </nav>
                         </div>
+                        <div class="hidden md:flex justify-center items-end mt-10 font-montserrat font-bold" id="time"></div>
                     </div>
                 <div id="telo" class="bg-emerald-500 md:col-span-2 pt-10 md:pt-0">
         <?php
@@ -154,6 +156,7 @@ class BasicTemplate implements IView{
 <!--                <span><b>Burger Express @2023</b></span>-->
 <!--            </div>-->
 <!--        </footer>-->
+        <script src="web/Views/styling/time.js"></script>
         <script>const msg = 'Opravdu chcete odebrat tento produkt z nabídky?';</script>
         <script>const msgUplneOdstraneni = 'Opravdu chcete nadobro smazat tento produkt?';</script>
         <script src="libraries/jquery/dist/jquery.min.js"></script>
