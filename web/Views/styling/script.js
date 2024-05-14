@@ -79,23 +79,23 @@ if(liAdmin != null){
 
 function add(list, path) {
     list.classList.add('transition');
-    list.classList.add('duration-300');
+    list.classList.add('duration-200');
     list.classList.add('bg-emerald-500');
     list.classList.add('text-white');
 
     path.classList.add('transition');
-    path.classList.add('duration-1000');
+    path.classList.add('duration-500');
     path.classList.add('text-emerald-300');
 }
 
 function remove(list, path) {
     list.classList.remove('transition');
-    list.classList.add('duration-300');
+    list.classList.add('duration-200');
     list.classList.remove('bg-emerald-500');
     list.classList.remove('text-white');
 
     path.classList.remove('transition');
-    path.classList.add('duration-1000');
+    path.classList.add('duration-500');
     path.classList.remove('text-emerald-300');
 }
 
