@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <title>Ziskani uzivatele</title>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="cs">-->
+<!--<head>-->
+<!--    <title>Ziskani uzivatele</title>-->
+<!--</head>-->
+<!--<body>-->
 
 <?php
 
@@ -29,7 +29,7 @@ $result = mysqli_query($con,$sql);
 echo
 "<div class='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 ml-2 mr-2 border-2 border-emerald-200 bg-emerald-300'>
     <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>Jméno a příjmení</div>
-    
+
     <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>E-mail</div>
     <div class='grid-cols-1 text-center border-b-2 border-emerald-100'>ID Právo</div>
     <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>Město</div>
@@ -44,7 +44,7 @@ while($row = mysqli_fetch_array($result)){
     echo
     "<div class='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 flex-wrap ml-2 mr-2 border-2 border-emerald-200 bg-emerald-300'>
         <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>".$row['jmeno']." ".$row['prijmeni']."</div>
-        
+
         <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>".$row['email']."</div>
         <div class='grid-cols-1 text-center border-b-2 border-emerald-100'>".$row['id_pravo']."</div>
         <div class='grid-cols-1 text-center border-b-2 border-emerald-200'>".$row['mesto']."</div>
@@ -66,5 +66,5 @@ echo
 </div>";
 mysqli_close($con);
 ?>
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
