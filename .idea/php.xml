@@ -13,7 +13,6 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/composer/vendor/ezyang/htmlpurifier" />
-      <path value="$PROJECT_DIR$/composer/vendor/composer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3">
